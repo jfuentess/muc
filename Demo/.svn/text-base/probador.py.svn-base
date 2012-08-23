@@ -1,6 +1,0 @@
-import sys
-import re
-
-
-print re.sub("\\\\tfrac\{", "\\\\frac{",sys.argv[1])
-
