@@ -1,0 +1,7 @@
+<apply><eq/>
+  <apply><and/>
+    <false/>
+    <ci type="boolean">P</ci>
+  </apply>
+  <false/>
+</apply>

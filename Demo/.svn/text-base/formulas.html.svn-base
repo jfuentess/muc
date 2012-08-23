@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>F&oacute;rmulas elegidas al azar</title>
+	</head>
+	<body>
+	<!-- Problemas con snuggleTex en ecuaciones como (  (a+b)\otimes c   -a\otimes c  -b \otimes c ), cuando debería funcionar-->		
+
+
+<img class="tex" alt="E = mc^2"/>
+<br/>
+<img class="tex" alt="t=\frac{t_o}{\sqrt{1-v^2/c^2}}"/>
+<br/>
+<img class="tex" alt="\beta_n = \frac{\pi n}{M+1}"/>
+<br/>
+	</body>
+</html>

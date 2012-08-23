@@ -1,0 +1,6 @@
+import sys
+import re
+
+
+print re.sub("\\\\geq\{\}","Funciono",sys.argv[1])
+

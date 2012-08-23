@@ -1,0 +1,33 @@
+- Falta que reconozca todas las expresiones de una linea y no solo la primera (******)
+
+- Lista de operadores soportados http://www2.ph.ed.ac.uk/snuggletex/documentation/generating-content-mathml.html
+	- Deben ser incluidos todos 
+
+- a=b=c se traduce como a=b y b=c, ya que snuggle lo traduce asi
+- En el demo online f(x) se reconoce como una funcion, pero en la version 1.2 instalada en el computador se reconoce como una multiplicacion
+
+- No lee expresiones como \sum_{k=1}^{100} k (todas las que involucran \sum)
+- Problemas en esta verbalización (se debería incluir el implica)
+
+	LaTeX: "\$ \log_b x = n\Leftrightarrowx = b^n \$"
+	Verbalizacion: (pausa) logaritmo en base b de x (pausa) es igual a n (pausa) y (pausa) n es igual a (pausa) b elevado a n (pausa)
+
+- Problemas en esta verbalizacion
+
+	LaTeX: "\$ 10^6=1.000.000 \$"
+	Verbalizacion: (pausa) 10 elevado a 6 (pausa) es igual a (pausa) 1.000 por .000 (pausa)
+
+- Falta incluir <list>
+
+- Problemas con "n \iff b", pues lo considera como una multiplicacion. Sin embargo en el demo online lanza un error.
+
+- Revisar este caso "\$ (b>0, b \neq 1) \$"
+
+- Podria ser buena idea reemplazar "\mathbb{R}" por <reals> (Conjunto de los numeros reales), \mathbb{Z} por el conjunto de los enteros, etc
+
+- Eliminar las apariciones de  "\!"
+
+http://es.wikipedia.org/wiki/Relatividad_general
+http://es.wikipedia.org/wiki/Logaritmaci%C3%B3n
+http://es.wikipedia.org/wiki/Radicaci%C3%B3n
+http://es.wikipedia.org/wiki/Potenciaci%C3%B3n

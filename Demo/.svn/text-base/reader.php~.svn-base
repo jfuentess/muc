@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<center>
+			<h1>Verbalizaci&oacute;n de expresiones matem&aacute;ticas</h1>
+			<h3>Desde p&aacute;ginas de Wikipedia</h3>
+
+			<form action = "<?php echo $PHP_SELF;?>" method="post">
+				Ingresa URL: <input type="text" name="url" size=90% /><br/><br/>
+				<input type="submit" name="submit" value="Submit" />
+			</form>
+		</center>
+
+		<?php
+
+		if(isset($_POST['url']) && isset($_POST['submit']))
+		{
+			exec('python reader.py "'.$_POST['url'].'"', $salida);
+
+			foreach($salida as $linea)
+			{
+				echo $linea;
+			}
+		}
+		?>
+
+	</body>
+</html>

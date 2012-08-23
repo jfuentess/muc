@@ -1,0 +1,11 @@
+- Problemas en esta verbalizacion
+
+	LaTeX: "\$ 10^6=1.000.000 \$"
+	Verbalizacion: (pausa) 10 elevado a 6 (pausa) es igual a (pausa) 1.000 por .000 (pausa)
+	Los decimales usan puntos y comas, los vectores comas y en notacion decimal punto (1.000.123), sin embargo las comas de los decimales deben ser reemplazadas por puntos, ya que las comas son interpretadas como elementos de una lista por parte de snuggletex
+	
+- Revisar este caso "\$ (b>0, b \neq 1) \$"
+
+- Podria ser buena idea reemplazar "\mathbb{R}" por <reals> (Conjunto de los numeros reales), \mathbb{Z} por el conjunto de los enteros, etc
+
+- Problemas con h(r), se lee como "h por r", la solucion seria decir que interpretara por defecto h como funcion, pero no seria la mejor solucion (por ejemplo en http://es.wikipedia.org/wiki/Relatividad_general)
