@@ -36,10 +36,14 @@ def gen_len_nat(stack):
     element = stack.pop()
 
     while element != '$':
-        #Esto es un workaround, porque el algoritmo no toma en cuenta los parametros de las funciones
+        #Hay que modificar el algoritmo para detectar los nombres de parametros de funcion
+        #así se puede indexar que tipo de variable hay que reemplazar, y posiblemente, hay que
+        #modificar un poco las plantillas.
+
+        #Reemplaza la primera variable que encuentre con el elemento correspondiente
         output = re.sub('\$VAR\$', element, output, 1)
         output = re.sub('\$DEGREE\$', element, output, 1)
-        #Fin de workaround
+        #Fin reemplazar las variables
         if len(stack) != 1:
             try:
                 output = re.sub('\*',nario[op], output, 1)
