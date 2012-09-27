@@ -9,6 +9,9 @@ oper = {}
 #para los asteriscos (n-arios) de las plantillas
 nario = {}
 
+#Para realizar el unescaping HTML (transforma a unicode)
+chtml = {'aacute':u'\xe1', 'eacute':u'\xe9', 'iacute':u'\xed', 'oacute':u'\xf3', 'uacute':u'\xfa', 'ntilde':u'\xf1', 'auml':u'\xe4', 'euml':u'\xeb', 'iuml':u'\xef', 'ouml':u'\xf6', 'uuml':u'\xfc'}
+
 #genera el diccionario de operaciones
 def generar_operaciones():
     input = csv.reader(open('operaciones.csv','rb'))

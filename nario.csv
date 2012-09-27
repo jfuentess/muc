@@ -11,7 +11,7 @@
 "union","union $VAR$ *"
 "vector","coma $VAR$ *"
 "function","coma $VAR$ *"
-"intersect","interseccion $VAR$ *"
+"intersect","intersecci&oacute;n $VAR$ *"
 "subset","subconjunto de $VAR$ *"
 "eq","es igual a $VAR$ *"
 "gcd","coma $VAR$ *"

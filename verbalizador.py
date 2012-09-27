@@ -7,8 +7,18 @@ from types import *
 
 #Inicio de renombre de funciones y variables
 oper = diccionario.oper
-nario = diccionario.nario 
+nario = diccionario.nario
+chtml = diccionario.chtml
 #Fin de renombre de funciones y variables
+
+#Realiza el unescape HTML
+def unescapeHtml(c):
+    tmp = []
+    tmp = re.findall("&(.*?);",c)
+    for a in tmp:
+        c = re.sub('&'+a+';', chtml[a], c, 1)
+    return c
+
 
 #Verifica si un tag se encuentra indexado en el diccionario o no
 def definido(tag):
@@ -37,7 +47,7 @@ def gen_len_nat(stack):
 
     while element != '$':
         #Hay que modificar el algoritmo para detectar los nombres de parametros de funcion
-        #así se puede indexar que tipo de variable hay que reemplazar, y posiblemente, hay que
+        #asi se puede indexar que tipo de variable hay que reemplazar, y posiblemente, hay que
         #modificar un poco las plantillas.
 
         #Reemplaza la primera variable que encuentre con el elemento correspondiente
@@ -90,6 +100,6 @@ def verbalizar(mathml):
                         tmp.append(element)
                     element = stack.pop()
 
-                    
+    stack[1] = unescapeHtml(stack[1])
     return stack
 
