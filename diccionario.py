@@ -9,7 +9,10 @@ oper = {}
 #para los asteriscos (n-arios) de las plantillas
 nario = {}
 
-#Para realizar el unescaping HTML (transforma a unicode)
+#para los parametros de las funciones
+param = {}
+
+#Para realizar el unescaping HTML que transforma a unicode (no existe una biblioteca oficial)
 chtml = {'aacute':u'\xe1', 'eacute':u'\xe9', 'iacute':u'\xed', 'oacute':u'\xf3', 'uacute':u'\xfa', 'ntilde':u'\xf1', 'auml':u'\xe4', 'euml':u'\xeb', 'iuml':u'\xef', 'ouml':u'\xf6', 'uuml':u'\xfc'}
 
 #genera el diccionario de operaciones
@@ -23,4 +26,10 @@ def generar_nario():
     input = csv.reader(open('nario.csv','rb'))
     for t in input:
         nario[t[0]] = t[1]
+
+#genera el diccionario de n-arios
+def generar_param():
+    input = csv.reader(open('parametros.csv','rb'))
+    for t in input:
+        param[t[0]] = t[1]
 

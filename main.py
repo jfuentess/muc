@@ -35,7 +35,8 @@ def main():
 
     verbalizador.diccionario.generar_operaciones() #Genera diccionario de operaciones
     verbalizador.diccionario.generar_nario() #Genera diccionario de n-arios
-    
+    verbalizador.diccionario.generar_param() #Genera diccionario de parametros especiales
+
     for el in formula: #verbaliza todas los codigos encontrados en la pagina web
         frase = verbalizar(cElementTree.iterparse(StringIO.StringIO(el[0]), events=("start", "end")))
         print frase[1]
