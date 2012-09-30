@@ -12,6 +12,13 @@ chtml = diccionario.chtml
 param = diccionario.param
 #Fin de renombre de funciones y variables
 
+#Genera diccionarios
+def inicializar_diccionarios():
+    diccionario.generar_operaciones() 
+    diccionario.generar_nario() 
+    diccionario.generar_param() 
+
+
 #Realiza el unescape HTML
 def unescapeHtml(c):
     tmp = []
