@@ -29,6 +29,7 @@ def definido(tag):
     except:
         return False
 
+#Verifica si es un parametro especial
 def esParam(tag):
     try:
         param[tag]
@@ -40,9 +41,7 @@ def esParam(tag):
 def gen_len_nat(stack):
 
     op = stack.pop()
-    #Workaround para la raiz cuadrada, log en base 10
-    if op[1:] == "root" and len(stack) == 2:
-        op = "%root_default"
+    #Workaround para -x
     if op[1:] == "minus" and len(stack) == 2:
         op = "%minus_default"
     #Fin de workaround
