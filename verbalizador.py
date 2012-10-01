@@ -20,7 +20,7 @@ def inicializar_diccionarios():
 
 
 #Realiza el unescape HTML
-def unescapeHtml(c):
+def unescape_html(c):
     tmp = []
     tmp = re.findall("&(.*?);",c)
     for a in tmp:
@@ -37,7 +37,7 @@ def definido(tag):
         return False
 
 #Verifica si es un parametro especial
-def esParam(tag):
+def es_param(tag):
     try:
         param[tag]
         return True
@@ -54,21 +54,23 @@ def gen_len_nat(stack):
     #Fin de workaround
 
     output = oper[op[1:]]#buscar plantilla adecuada al operador
-
+    totpar = len(re.findall('(\$FRA\$)',output)) #total de parametros en una plantilla
     element = stack.pop()
     p = []
 
     while element != '$':
         #Inicio de reemplazo de parametros especiales (ej:Logaritmo (en base x)? de ...)
-        if element[0] == '-':
-            p = re.findall("-(.*?):(.*?);",element)
-            if len(p) != 0:
+        if totpar != 0:
+            if element[0] == '-':
+                p = re.findall("-(.*?):(.*?);",element)
                 fra = re.sub('\$VAR\$', p[0][1] , param[p[0][0]], 1)
                 output = re.sub('\$FRA\$', fra, output, 1)
+                totpar = totpar - 1
 
-        elif esParam(op[1:]+"_default"):
-            output = re.sub('\$FRA\$', param[op[1:]+"_default"], output, 1)
-            output = re.sub('\$VAR\$', element, output, 1)
+            elif es_param(op[1:]+"_default"):
+                output = re.sub('\$FRA\$', param[op[1:]+"_default"], output, 1)
+                output = re.sub('\$VAR\$', element, output, 1)
+                totpar = totpar - 1
         #Fin de reemplazo de parametros especiales
 
         #Reemplaza la primera variable que encuentre con el elemento correspondiente
@@ -109,9 +111,6 @@ def verbalizar(mathml):
 
             elif definido(el.tag): #Apila el nombre de un operador
                 stack.append("%"+el.tag)
-            #Para apilar el nombre de un parametro de funcion.
-            else:
-                stack.append("-"+el.tag)
 
         else: #tag de cierre implica generar lenguaje natural
 
@@ -129,12 +128,10 @@ def verbalizar(mathml):
             #Si es un tag de cierre de parametro entonces se le antecede
             #un "-" al parametro para elegir la plantilla adecuada en el
             #caso de que se requiera una default o no
-            elif esParam(el.tag):
+            elif es_param(el.tag):
 		p = el.tag
                 p = "-"+p+":"+stack.pop()+";"
-                element = stack.pop()
                 stack.append(p)
 
-    stack[1] = unescapeHtml(stack[1])
-    return stack
+    return unescape_html(stack[1])
 

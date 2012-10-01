@@ -35,6 +35,6 @@ def main():
 
     for el in formula: #verbaliza todas los codigos encontrados en la pagina web
         frase = verbalizar(cElementTree.iterparse(StringIO.StringIO(el[0]), events=("start", "end")))
-        print frase[1]
+        print frase
 
 main()
